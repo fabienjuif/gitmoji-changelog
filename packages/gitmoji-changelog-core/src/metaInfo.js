@@ -1,11 +1,11 @@
-const readPkgUp = require('read-pkg-up')
-const getPkgRepo = require('get-pkg-repo')
-const gitRemoteOriginUrl = require('git-remote-origin-url')
-const normalizePackageData = require('normalize-package-data')
-const { isEmpty } = require('lodash')
+import readPkgUp from 'read-pkg-up'
+import getPkgRepo from 'get-pkg-repo'
+import gitRemoteOriginUrl from 'git-remote-origin-url'
+import normalizePackageData from 'normalize-package-data'
+import { isEmpty } from 'lodash'
 
 // get the closest package.json file
-async function getPackageInfo() {
+export async function getPackageInfo() {
   try {
     const packageInfo = await readPkgUp()
 
@@ -23,7 +23,7 @@ async function getPackageInfo() {
 }
 
 // get git repository info
-async function getRepoInfo(packageJson = {}) {
+export async function getRepoInfo(packageJson = {}) {
   const pkg = {
     repository: packageJson.repository,
   }
@@ -56,9 +56,4 @@ async function getRepoInfo(packageJson = {}) {
   } catch (e) {
     return null
   }
-}
-
-module.exports = {
-  getPackageInfo,
-  getRepoInfo,
 }

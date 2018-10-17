@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   art: '🎨',
   zap: '⚡️',
   fire: '🔥',

@@ -1,4 +1,4 @@
-const { convert, autolink, getShortHash } = require('./index')
+import { convert, autolink, getShortHash } from './index'
 
 describe('Markdown converter', () => {
   it('should convert changelog into markdown', () => {

@@ -1,4 +1,4 @@
-const { parseCommit } = require('./parser.js')
+import { parseCommit } from './parser.js'
 
 const sparklesCommit = {
   hash: 'c40ee8669ba7ea5151adc2942fa8a7fc98d9e23f',

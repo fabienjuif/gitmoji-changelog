@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
-const gitRawCommits = require('git-raw-commits')
-const gitSemverTags = require('git-semver-tags')
+import gitRawCommits from 'git-raw-commits'
+import gitSemverTags from 'git-semver-tags'
 
-const { generateChangelog } = require('./index')
+import { generateChangelog } from './index'
 
 const sparklesCommit = {
   hash: 'c40ee8669ba7ea5151adc2942fa8a7fc98d9e23a',

@@ -1,13 +1,15 @@
-const gitRawCommits = require('git-raw-commits')
-const gitSemverTags = require('git-semver-tags')
-const through = require('through2')
-const concat = require('concat-stream')
-const { promisify } = require('util')
+import gitRawCommits from 'git-raw-commits'
+import gitSemverTags from 'git-semver-tags'
+import through from 'through2'
+import concat from 'concat-stream'
+import { promisify } from 'util'
 
-const { parseCommit } = require('./parser')
-const { getPackageInfo, getRepoInfo } = require('./metaInfo')
-const groupMapping = require('./groupMapping')
-const logger = require('./logger')
+import { parseCommit } from './parser'
+import { getPackageInfo, getRepoInfo } from './metaInfo'
+import groupMapping from './groupMapping'
+import logger from './logger'
+
+export { logger }
 
 const gitSemverTagsAsync = promisify(gitSemverTags)
 
@@ -45,7 +47,7 @@ function makeGroups(commits) {
     .filter(group => group.commits.length)
 }
 
-async function generateChangelog() {
+export async function generateChangelog() {
   const packageInfo = await getPackageInfo()
   const repository = await getRepoInfo(packageInfo)
 
@@ -91,9 +93,4 @@ function getLastCommitDate(commits) {
       return lastCommitDate
     })
     .toISOString().split('T')[0]
-}
-
-module.exports = {
-  generateChangelog,
-  logger,
 }

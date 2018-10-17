@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
-const readPkgUp = require('read-pkg-up')
-const gitRemoteOriginUrl = require('git-remote-origin-url')
+import readPkgUp from 'read-pkg-up'
+import gitRemoteOriginUrl from 'git-remote-origin-url'
 
-const { getPackageInfo, getRepoInfo } = require('./metaInfo')
+import { getPackageInfo, getRepoInfo } from './metaInfo'
 
 describe('getPackageInfo', () => {
   it('should extract github repo info from package.json', async () => {

@@ -1,4 +1,4 @@
-const { Signale } = require('signale')
+import { Signale } from 'signale'
 
 const options = {
   disabled: false,
@@ -6,6 +6,4 @@ const options = {
   stream: process.stdout,
 }
 
-const signale = new Signale(options)
-
-module.exports = signale
+export default new Signale(options)

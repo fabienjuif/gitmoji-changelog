@@ -1,5 +1,5 @@
-const { changelog, logger } = require('@gitmoji-changelog/core')
-const { main } = require('./cli')
+import { changelog, logger } from '@gitmoji-changelog/core'
+import { main } from './cli'
 
 describe('cli', () => {
   it('should throw an error if not a git project', async () => {

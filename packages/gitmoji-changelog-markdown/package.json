@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "Gitmoji Changelog markdown formatter",
   "main": "src/index.js",
-  "bin": {
-    "gitmoji-changelog": "./src/index.js"
-  },
   "engines": {
     "node": ">=10"
   },
@@ -20,6 +17,7 @@
   },
   "homepage": "https://github.com/frinyvonnick/gitmoji-changelog#readme",
   "dependencies": {
+    "esm": "^3.0.84",
     "handlebars": "^4.0.12",
     "immutadot": "^1.0.0",
     "lodash": "^4.17.11"

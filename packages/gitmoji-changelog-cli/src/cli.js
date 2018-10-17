@@ -1,8 +1,8 @@
-const { generateChangelog, logger } = require('@gitmoji-changelog/core')
-const { convert } = require('@gitmoji-changelog/markdown')
-const fs = require('fs')
+import { generateChangelog, logger } from '@gitmoji-changelog/core'
+import { convert } from '@gitmoji-changelog/markdown'
+import fs from 'fs'
 
-async function main({ format } = {}) {
+export async function main({ format } = {}) {
   let changelog
   try {
     changelog = await generateChangelog()
@@ -31,5 +31,3 @@ async function main({ format } = {}) {
     logger.error(e)
   }
 }
-
-module.exports = { main }

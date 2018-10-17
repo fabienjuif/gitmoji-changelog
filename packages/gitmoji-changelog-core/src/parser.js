@@ -1,6 +1,6 @@
-const splitLines = require('split-lines')
-const groupMapping = require('./groupMapping')
-const emojiMapping = require('./emojiMapping')
+import splitLines from 'split-lines'
+import groupMapping from './groupMapping'
+import emojiMapping from './emojiMapping'
 
 function parseSubject(subject) {
   if (!subject) return {}
@@ -15,13 +15,13 @@ function parseSubject(subject) {
   }
 }
 
-function getCommitGroup(emojiCode) {
+export function getCommitGroup(emojiCode) {
   const group = groupMapping.find(({ emojis }) => emojis.includes(emojiCode))
   if (!group) return 'misc'
   return group.group
 }
 
-function parseCommit(commit) {
+export function parseCommit(commit) {
   const lines = splitLines(commit)
   const [hash, date, subject, ...body] = lines.splice(1, lines.length - 2)
   const { emoji, emojiCode, message } = parseSubject(subject)
@@ -37,9 +37,4 @@ function parseCommit(commit) {
     group,
     body: body.join('\n'),
   }
-}
-
-module.exports = {
-  parseCommit,
-  getCommitGroup,
 }
